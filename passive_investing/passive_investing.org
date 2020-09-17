@@ -1,0 +1,224 @@
+#+title: The Passive Investor
+#+author: Rohan Thakker
+#+SETUPFILE: ../../org-template/style.org
+# #+OPTIONS: html-style:nil
+#+OPTIONS: :exports results
+
+* Data Informed Approach
+** Disclaimer
+Past data is not always an indicator of the future. In the words of Sean Ammirati, my professor at CMU, we need to be data informed and not data driven.
+
+** S&P 500 Data
+
+#+BEGIN_SRC ipython :session :exports both :results raw drawer :exports results
+%matplotlib inline
+import pandas as pd
+import matplotlib
+import matplotlib.pyplot as plt
+plt.rcParams['figure.facecolor'] = 'white'
+plt.rcParams['figure.figsize'] = [12, 8]
+import bisect
+import numpy as np
+from scipy.optimize import curve_fit
+from mpl_toolkits.mplot3d import Axes3D
+
+df = pd.read_excel('data.xls')
+data_orig = df.to_numpy()
+# Convert date to time (decimal)
+time_orig = [ np.floor(d)+ (d%1)/0.12 for d in data_orig[:,0]]
+plt.plot(time_orig, data_orig[:,1])
+plt.xlabel('Year')
+plt.ylabel('Value ($)')
+plt.show()
+#+end_src
+
+#+RESULTS:
+:results:
+# Out[7]:
+[[file:./obipy-resources/DxLNRo.png]]
+:end:
+
+
+** Assumptions
+To keep the analysis simple and build intuition we will start with some assumptions which can relaxed later:
+*** The effects of inflation are cancelled out reinvesting the dividends
+*** We consider a fixed amount invested at a single start date rather than monthly investments
+
+
+* Does the stock market grow exponentially?
+#+BEGIN_SRC ipython :session :exports both :results raw drawer :exports results
+@np.vectorize
+def get_rate(start_time, delta_time, show_plot=False):
+    # Get data for desired period
+    start_idx = bisect.bisect_left(time_orig, start_time)
+    end_idx = bisect.bisect_left(time_orig, start_time + delta_time)
+    if (end_idx >= len(time_orig) or start_idx >= len(time_orig)):
+        return 0.0
+    time = time_orig[start_idx:end_idx] - time_orig[start_idx]
+    data = data_orig[start_idx:end_idx]
+    principal = data[0][1]
+
+    # Define function to regress
+    def value(time, annual_rate):
+        return principal * (1 + annual_rate/100) ** time
+
+    # Perform regression
+    annual_rate_opt, pcov = curve_fit(value, time, data[:,1])
+    # print(annual_rate_opt)
+
+    # Plot prices vs time
+    if show_plot:
+        plt.plot(start_time + time, data[:,1], 'b*', label="S&P 500 Monthly Data")
+        plt.plot(start_time + time, value(time, annual_rate_opt), 'r-', label="Fitted Curve")
+        plt.xlabel('Year')
+        plt.ylabel('Value ($)')
+        plt.legend()
+        plt.show()
+    return annual_rate_opt
+print('Annual Rate: %.2f' % get_rate(1900, 120, True))
+#+end_src
+#+RESULTS:
+:results:
+# Out[94]:
+[[file:./obipy-resources/AkD4fW.png]]
+:end:
+
+
+* How sensitive are the returns to investment timing?
+
+#+BEGIN_SRC ipython :session :exports both :results raw drawer :exports results
+start_times=np.arange(1920.0,2020,1)
+delta_times=np.arange(1,30,1)
+@np.vectorize
+def get_factor(start_time, delta_time, use_NaN=False):
+    # Get data for desired period
+    start_idx = bisect.bisect_left(time_orig, start_time)
+    end_idx = bisect.bisect_left(time_orig, start_time + delta_time)
+    if (end_idx >= len(time_orig) or start_idx >= len(time_orig)):
+        if (use_NaN):
+            return None
+        else:
+            return 0.0
+    principal = data_orig[start_idx][1]
+    value = data_orig[end_idx][1]
+    return value/principal
+X,Y = np.meshgrid(start_times, delta_times)
+Z_factor = get_factor(X,Y)
+fig2 = plt.figure()
+ax2 = fig2.add_subplot('111',projection='3d')
+mycmap = plt.get_cmap('gist_earth')
+surf2 = ax2.plot_surface(X, Y, Z_factor, cmap=mycmap)
+ax2.set_xlabel('Start Year')
+ax2.set_ylabel('Period')
+ax2.set_zlabel('Growth Factor')
+fig2.colorbar(surf2, ax=ax2, shrink=0.5, aspect=5)
+plt.show()
+#+end_src
+#+RESULTS:
+:results:
+# Out[93]:
+[[file:./obipy-resources/RwmTRS.png]]
+:end:
+** Market Entry
+*** Slices
+#+BEGIN_SRC ipython :session :exports both :results raw drawer :exports results
+fig, axs = plt.subplots(3,2, figsize=(18, 20), facecolor='w', edgecolor='k')
+fig.subplots_adjust(hspace = 0.22, wspace=0.1)
+fig_box = plt.figure()
+ax_box = fig_box.add_subplot('111',projection='3d')
+axs = axs.ravel()
+investment_periods = [1, 2, 4, 8, 16, 32]
+factors = {}
+for i in range(len(investment_periods)):
+    factor = get_factor(start_times, investment_periods[i], True)
+    axs[i].plot(start_times, factor)
+    axs[i].set_xlabel('Start Year')
+    axs[i].set_ylabel('Growth Factor')
+    factors[investment_periods[i]] = factor
+    factor = factor[~np.isnan(factor)]
+    axs[i].set_title(str(investment_periods[i]) + '-Year Investment Period\n' + 'Mean: ' + str("{:.2f}".format(np.mean(factor))) + ', Min: ' + str("{:.2f}".format(np.min(factor)))  + ', Max: ' + str("{:.2f}".format(np.max(factor))))
+plt.show()
+#+end_src
+
+#+RESULTS:
+:results:
+# Out[75]:
+[[file:./obipy-resources/TVFW9U.png]]
+:end:
+
+# *** Projected Slices
+# #+BEGIN_SRC ipython :session :exports both :results raw drawer :exports results
+# fig10 = plt.figure()
+# ax10 = fig_box.add_subplot('111',projection='3d')
+# ax10.set_xlabel('Start Year')
+# ax10.set_ylabel('Growth Factor')
+# investment_periods = [1, 2, 4, 8, 16, 32]
+# factors = {}
+# for i in range(len(investment_periods)):
+#     factor = get_factor(start_times, investment_periods[i], True)
+#     plt.boxplot(factor)
+# plt.show()
+# #+end_src
+
+# #+RESULTS:
+# :results:
+# # Out[46]:
+# [[file:./obipy-resources/d5yjiC.png]]
+# :end:
+
+
+
+** Investment Period
+
+*** Slices
+
+#+BEGIN_SRC ipython :session :exports both :results raw drawer :exports results
+fig, axs = plt.subplots(3,2, figsize=(18, 20), facecolor='w', edgecolor='k')
+fig.subplots_adjust(hspace = 0.22, wspace=0.1)
+fig_box = plt.figure()
+ax_box = fig_box.add_subplot('111',projection='3d')
+axs = axs.ravel()
+factors = {}
+start_times=np.arange(1920.0, 2020, 15)
+for i in range(len(start_times)-1):
+    factor = get_factor(start_times[i], delta_times, True)
+    axs[i].plot(delta_times, factor)
+    axs[i].set_xlabel('Investment Period')
+    axs[i].set_ylabel('Growth Factor')
+    factors[start_times[i]] = factor
+    factor = factor[~np.isnan(factor)]
+    axs[i].set_title('Investment Year: ' + str(start_times[i]) + '\n' + 'Mean: ' + str("".format(np.mean(factor))) + ', Min: ' + str("{:.2f}".format(np.min(factor)))  + ', Max: ' + str("{:.2f}".format(np.max(factor))))
+plt.show()
+#+end_src
+
+#+RESULTS:
+:results:
+# Out[97]:
+[[file:./obipy-resources/BVxJws.png]]
+:end:
+
+# *** Projected Slices
+# #+BEGIN_SRC ipython :session :exports both :results raw drawer :exports results
+# fig10 = plt.figure()
+# ax10 = fig_box.add_subplot('111',projection='3d')
+# ax10.set_xlabel('Start Year')
+# ax10.set_ylabel('Growth Factor')
+# investment_periods = [1, 2, 4, 8, 16, 32]
+# factors = {}
+# for i in range(len(investment_periods)):
+#     factor = get_factor(start_times, investment_periods[i], True)
+#     plt.boxplot(factor)
+# plt.show()
+# #+end_src
+
+# #+RESULTS:
+# :results:
+# # Out[46]:
+# [[file:./obipy-resources/d5yjiC.png]]
+# :end:
+
+
+* What are other useful resources to learn more?
+** Investment Brokers
+** Books and more!
+** Useful Websites

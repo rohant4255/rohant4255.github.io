@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-17 Thu 01:58 -->
+<!-- 2020-09-17 Thu 01:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Inobotics</title>
+<title>The Passive Investor</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Rohan Thakker" />
 <style type="text/css">
@@ -180,6 +180,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="../css/orgcss/docs/org.css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -229,18 +230,166 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Inobotics</h1>
-<ul class="org-ul">
-<li><a href="blogging_with_emacs.html">Blogging with Emacs Org Mode</a></li>
-<li>passive<sub>investing</sub>
-<ul class="org-ul">
-<li><a href="passive_investing/passive_investing.html">The Passive Investor</a></li>
-</ul></li>
+<h1 class="title">The Passive Investor</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org6262e2b">1. Data Informed Approach</a>
+<ul>
+<li><a href="#org060f638">1.1. Disclaimer</a></li>
+<li><a href="#org9e08eff">1.2. S&amp;P 500 Data</a></li>
+<li><a href="#orgd703e6a">1.3. Assumptions</a>
+<ul>
+<li><a href="#orgcd0a291">1.3.1. The effects of inflation are cancelled out reinvesting the dividends</a></li>
+<li><a href="#org318e173">1.3.2. We consider a fixed amount invested at a single start date rather than monthly investments</a></li>
 </ul>
+</li>
+</ul>
+</li>
+<li><a href="#org4aff40f">2. Does the stock market grow exponentially?</a></li>
+<li><a href="#org99377bb">3. How sensitive are the returns to investment timing?</a>
+<ul>
+<li><a href="#orgb2981ee">3.1. Market Entry</a>
+<ul>
+<li><a href="#orgb6147fc">3.1.1. Slices</a></li>
+</ul>
+</li>
+<li><a href="#org6bc38d1">3.2. Investment Period</a>
+<ul>
+<li><a href="#orga11b653">3.2.1. Slices</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org1501b5c">4. What are other useful resources to learn more?</a>
+<ul>
+<li><a href="#org5bc7917">4.1. Investment Brokers</a></li>
+<li><a href="#org0c4aa1b">4.2. Books and more!</a></li>
+<li><a href="#org8f36dac">4.3. Useful Websites</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6262e2b" class="outline-2">
+<h2 id="org6262e2b"><span class="section-number-2">1</span> Data Informed Approach</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org060f638" class="outline-3">
+<h3 id="org060f638"><span class="section-number-3">1.1</span> Disclaimer</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Past data is not always an indicator of the future. In the words of Sean Ammirati, my professor at CMU, we need to be data informed and not data driven.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9e08eff" class="outline-3">
+<h3 id="org9e08eff"><span class="section-number-3">1.2</span> S&amp;P 500 Data</h3>
+<div class="outline-text-3" id="text-1-2">
+
+<div class="figure">
+<p><img src="./obipy-resources/DxLNRo.png" alt="DxLNRo.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgd703e6a" class="outline-3">
+<h3 id="orgd703e6a"><span class="section-number-3">1.3</span> Assumptions</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+To keep the analysis simple and build intuition we will start with some assumptions which can relaxed later:
+</p>
+</div>
+<div id="outline-container-orgcd0a291" class="outline-4">
+<h4 id="orgcd0a291"><span class="section-number-4">1.3.1</span> The effects of inflation are cancelled out reinvesting the dividends</h4>
+</div>
+<div id="outline-container-org318e173" class="outline-4">
+<h4 id="org318e173"><span class="section-number-4">1.3.2</span> We consider a fixed amount invested at a single start date rather than monthly investments</h4>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org4aff40f" class="outline-2">
+<h2 id="org4aff40f"><span class="section-number-2">2</span> Does the stock market grow exponentially?</h2>
+<div class="outline-text-2" id="text-2">
+
+<div class="figure">
+<p><img src="./obipy-resources/AkD4fW.png" alt="AkD4fW.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org99377bb" class="outline-2">
+<h2 id="org99377bb"><span class="section-number-2">3</span> How sensitive are the returns to investment timing?</h2>
+<div class="outline-text-2" id="text-3">
+
+<div class="figure">
+<p><img src="./obipy-resources/RwmTRS.png" alt="RwmTRS.png" />
+</p>
+</div>
+</div>
+<div id="outline-container-orgb2981ee" class="outline-3">
+<h3 id="orgb2981ee"><span class="section-number-3">3.1</span> Market Entry</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-orgb6147fc" class="outline-4">
+<h4 id="orgb6147fc"><span class="section-number-4">3.1.1</span> Slices</h4>
+<div class="outline-text-4" id="text-3-1-1">
+
+<div class="figure">
+<p><img src="./obipy-resources/TVFW9U.png" alt="TVFW9U.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org6bc38d1" class="outline-3">
+<h3 id="org6bc38d1"><span class="section-number-3">3.2</span> Investment Period</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-orga11b653" class="outline-4">
+<h4 id="orga11b653"><span class="section-number-4">3.2.1</span> Slices</h4>
+<div class="outline-text-4" id="text-3-2-1">
+
+<div class="figure">
+<p><img src="./obipy-resources/JDXTR2.png" alt="JDXTR2.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org1501b5c" class="outline-2">
+<h2 id="org1501b5c"><span class="section-number-2">4</span> What are other useful resources to learn more?</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org5bc7917" class="outline-3">
+<h3 id="org5bc7917"><span class="section-number-3">4.1</span> Investment Brokers</h3>
+</div>
+<div id="outline-container-org0c4aa1b" class="outline-3">
+<h3 id="org0c4aa1b"><span class="section-number-3">4.2</span> Books and more!</h3>
+</div>
+<div id="outline-container-org8f36dac" class="outline-3">
+<h3 id="org8f36dac"><span class="section-number-3">4.3</span> Useful Websites</h3>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Rohan Thakker</p>
-<p class="date">Created: 2020-09-17 Thu 01:58</p>
+<p class="date">Created: 2020-09-17 Thu 01:57</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
