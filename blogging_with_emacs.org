@@ -1,0 +1,26 @@
+#+title: Blogging with Emacs Org Mode
+#+author: Rohan Thakker
+#+SETUPFILE: ../org-template/style.org
+# #+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
+
+
+* Why emacs org mode?
+** Consistent markup language with export support to multiple file types:
+  * Latex
+  * Beamer
+  * HTML
+  * Word
+  * PDF
+  * and many more
+** Time efficiency
+  * Mouse-free workflow
+  * Highly customizable through e-lisp
+* How do I blog with emacs?
+** Basic setup
+Refer to the following to get started:
+https://opensource.com/article/20/3/blog-emacs
+** Templates
+Adapt the website using templates such as:
+- [[[https://gongzhitaao.org/orgcss/][orgcss]]] [[[https://gongzhitaao.org/orgcss/org.css][source code]]]
+#+attr_html: :width 75%
+[[./orgcss.PNG]]

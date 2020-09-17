@@ -218,6 +218,9 @@ plt.show()
 # :end:
 
 
+* Can we exploit the cycles and time the market?
+** Diagonal Slices
+
 * What are other useful resources to learn more?
 ** Investment Brokers
 ** Books and more!

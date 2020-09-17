@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-17 Thu 01:58 -->
+<!-- 2020-09-17 Thu 02:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Passive Investor</title>
@@ -235,50 +235,55 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6262e2b">1. Data Informed Approach</a>
+<li><a href="#orgc977b0e">1. Data Informed Approach</a>
 <ul>
-<li><a href="#org060f638">1.1. Disclaimer</a></li>
-<li><a href="#org9e08eff">1.2. S&amp;P 500 Data</a></li>
-<li><a href="#orgd703e6a">1.3. Assumptions</a>
+<li><a href="#org307cab7">1.1. Disclaimer</a></li>
+<li><a href="#org83c11e7">1.2. S&amp;P 500 Data</a></li>
+<li><a href="#org3fa5f3f">1.3. Assumptions</a>
 <ul>
-<li><a href="#orgcd0a291">1.3.1. The effects of inflation are cancelled out reinvesting the dividends</a></li>
-<li><a href="#org318e173">1.3.2. We consider a fixed amount invested at a single start date rather than monthly investments</a></li>
+<li><a href="#org0df0844">1.3.1. The effects of inflation are cancelled out reinvesting the dividends</a></li>
+<li><a href="#org57b0e5e">1.3.2. We consider a fixed amount invested at a single start date rather than monthly investments</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org4aff40f">2. Does the stock market grow exponentially?</a></li>
-<li><a href="#org99377bb">3. How sensitive are the returns to investment timing?</a>
+<li><a href="#orgd46f01a">2. Does the stock market grow exponentially?</a></li>
+<li><a href="#orgbc9f87e">3. How sensitive are the returns to investment timing?</a>
 <ul>
-<li><a href="#orgb2981ee">3.1. Market Entry</a>
+<li><a href="#org87fde3a">3.1. Market Entry</a>
 <ul>
-<li><a href="#orga11b653">3.1.1. Slices</a></li>
+<li><a href="#org7ba4086">3.1.1. Slices</a></li>
 </ul>
 </li>
-<li><a href="#org6bc38d1">3.2. Investment Period</a>
+<li><a href="#org9547b5c">3.2. Investment Period</a>
 <ul>
-<li><a href="#org221d420">3.2.1. Slices</a></li>
+<li><a href="#org108ff33">3.2.1. Slices</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org1501b5c">4. What are other useful resources to learn more?</a>
+<li><a href="#org0b7fb45">4. Can we exploit the cycles and time the market?</a>
 <ul>
-<li><a href="#org5bc7917">4.1. Investment Brokers</a></li>
-<li><a href="#org0c4aa1b">4.2. Books and more!</a></li>
-<li><a href="#org8f36dac">4.3. Useful Websites</a></li>
+<li><a href="#org4bf49d6">4.1. Diagonal Slices</a></li>
+</ul>
+</li>
+<li><a href="#org420d703">5. What are other useful resources to learn more?</a>
+<ul>
+<li><a href="#org4f609f1">5.1. Investment Brokers</a></li>
+<li><a href="#orgef9e8df">5.2. Books and more!</a></li>
+<li><a href="#org9e16036">5.3. Useful Websites</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6262e2b" class="outline-2">
-<h2 id="org6262e2b"><span class="section-number-2">1</span> Data Informed Approach</h2>
+<div id="outline-container-orgc977b0e" class="outline-2">
+<h2 id="orgc977b0e"><span class="section-number-2">1</span> Data Informed Approach</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org060f638" class="outline-3">
-<h3 id="org060f638"><span class="section-number-3">1.1</span> Disclaimer</h3>
+<div id="outline-container-org307cab7" class="outline-3">
+<h3 id="org307cab7"><span class="section-number-3">1.1</span> Disclaimer</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Past data is not always an indicator of the future. In the words of Sean Ammirati, my professor at CMU, we need to be data informed and not data driven.
@@ -286,8 +291,8 @@ Past data is not always an indicator of the future. In the words of Sean Ammirat
 </div>
 </div>
 
-<div id="outline-container-org9e08eff" class="outline-3">
-<h3 id="org9e08eff"><span class="section-number-3">1.2</span> S&amp;P 500 Data</h3>
+<div id="outline-container-org83c11e7" class="outline-3">
+<h3 id="org83c11e7"><span class="section-number-3">1.2</span> S&amp;P 500 Data</h3>
 <div class="outline-text-3" id="text-1-2">
 
 <div class="figure">
@@ -298,25 +303,25 @@ Past data is not always an indicator of the future. In the words of Sean Ammirat
 </div>
 
 
-<div id="outline-container-orgd703e6a" class="outline-3">
-<h3 id="orgd703e6a"><span class="section-number-3">1.3</span> Assumptions</h3>
+<div id="outline-container-org3fa5f3f" class="outline-3">
+<h3 id="org3fa5f3f"><span class="section-number-3">1.3</span> Assumptions</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 To keep the analysis simple and build intuition we will start with some assumptions which can relaxed later:
 </p>
 </div>
-<div id="outline-container-orgcd0a291" class="outline-4">
-<h4 id="orgcd0a291"><span class="section-number-4">1.3.1</span> The effects of inflation are cancelled out reinvesting the dividends</h4>
+<div id="outline-container-org0df0844" class="outline-4">
+<h4 id="org0df0844"><span class="section-number-4">1.3.1</span> The effects of inflation are cancelled out reinvesting the dividends</h4>
 </div>
-<div id="outline-container-org318e173" class="outline-4">
-<h4 id="org318e173"><span class="section-number-4">1.3.2</span> We consider a fixed amount invested at a single start date rather than monthly investments</h4>
+<div id="outline-container-org57b0e5e" class="outline-4">
+<h4 id="org57b0e5e"><span class="section-number-4">1.3.2</span> We consider a fixed amount invested at a single start date rather than monthly investments</h4>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-org4aff40f" class="outline-2">
-<h2 id="org4aff40f"><span class="section-number-2">2</span> Does the stock market grow exponentially?</h2>
+<div id="outline-container-orgd46f01a" class="outline-2">
+<h2 id="orgd46f01a"><span class="section-number-2">2</span> Does the stock market grow exponentially?</h2>
 <div class="outline-text-2" id="text-2">
 
 <div class="figure">
@@ -327,8 +332,8 @@ To keep the analysis simple and build intuition we will start with some assumpti
 </div>
 
 
-<div id="outline-container-org99377bb" class="outline-2">
-<h2 id="org99377bb"><span class="section-number-2">3</span> How sensitive are the returns to investment timing?</h2>
+<div id="outline-container-orgbc9f87e" class="outline-2">
+<h2 id="orgbc9f87e"><span class="section-number-2">3</span> How sensitive are the returns to investment timing?</h2>
 <div class="outline-text-2" id="text-3">
 
 <div class="figure">
@@ -336,12 +341,12 @@ To keep the analysis simple and build intuition we will start with some assumpti
 </p>
 </div>
 </div>
-<div id="outline-container-orgb2981ee" class="outline-3">
-<h3 id="orgb2981ee"><span class="section-number-3">3.1</span> Market Entry</h3>
+<div id="outline-container-org87fde3a" class="outline-3">
+<h3 id="org87fde3a"><span class="section-number-3">3.1</span> Market Entry</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-orga11b653" class="outline-4">
-<h4 id="orga11b653"><span class="section-number-4">3.1.1</span> Slices</h4>
+<div id="outline-container-org7ba4086" class="outline-4">
+<h4 id="org7ba4086"><span class="section-number-4">3.1.1</span> Slices</h4>
 <div class="outline-text-4" id="text-3-1-1">
 
 <div class="figure">
@@ -354,12 +359,12 @@ To keep the analysis simple and build intuition we will start with some assumpti
 
 
 
-<div id="outline-container-org6bc38d1" class="outline-3">
-<h3 id="org6bc38d1"><span class="section-number-3">3.2</span> Investment Period</h3>
+<div id="outline-container-org9547b5c" class="outline-3">
+<h3 id="org9547b5c"><span class="section-number-3">3.2</span> Investment Period</h3>
 <div class="outline-text-3" id="text-3-2">
 </div>
-<div id="outline-container-org221d420" class="outline-4">
-<h4 id="org221d420"><span class="section-number-4">3.2.1</span> Slices</h4>
+<div id="outline-container-org108ff33" class="outline-4">
+<h4 id="org108ff33"><span class="section-number-4">3.2.1</span> Slices</h4>
 <div class="outline-text-4" id="text-3-2-1">
 
 <div class="figure">
@@ -372,24 +377,33 @@ To keep the analysis simple and build intuition we will start with some assumpti
 </div>
 
 
-<div id="outline-container-org1501b5c" class="outline-2">
-<h2 id="org1501b5c"><span class="section-number-2">4</span> What are other useful resources to learn more?</h2>
+<div id="outline-container-org0b7fb45" class="outline-2">
+<h2 id="org0b7fb45"><span class="section-number-2">4</span> Can we exploit the cycles and time the market?</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org5bc7917" class="outline-3">
-<h3 id="org5bc7917"><span class="section-number-3">4.1</span> Investment Brokers</h3>
+<div id="outline-container-org4bf49d6" class="outline-3">
+<h3 id="org4bf49d6"><span class="section-number-3">4.1</span> Diagonal Slices</h3>
 </div>
-<div id="outline-container-org0c4aa1b" class="outline-3">
-<h3 id="org0c4aa1b"><span class="section-number-3">4.2</span> Books and more!</h3>
 </div>
-<div id="outline-container-org8f36dac" class="outline-3">
-<h3 id="org8f36dac"><span class="section-number-3">4.3</span> Useful Websites</h3>
+
+<div id="outline-container-org420d703" class="outline-2">
+<h2 id="org420d703"><span class="section-number-2">5</span> What are other useful resources to learn more?</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org4f609f1" class="outline-3">
+<h3 id="org4f609f1"><span class="section-number-3">5.1</span> Investment Brokers</h3>
+</div>
+<div id="outline-container-orgef9e8df" class="outline-3">
+<h3 id="orgef9e8df"><span class="section-number-3">5.2</span> Books and more!</h3>
+</div>
+<div id="outline-container-org9e16036" class="outline-3">
+<h3 id="org9e16036"><span class="section-number-3">5.3</span> Useful Websites</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Rohan Thakker</p>
-<p class="date">Created: 2020-09-17 Thu 01:58</p>
+<p class="date">Created: 2020-09-17 Thu 02:16</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
