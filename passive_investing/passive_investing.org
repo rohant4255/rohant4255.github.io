@@ -2,13 +2,26 @@
 #+author: Rohan Thakker
 #+SETUPFILE: ../../org-template/style.org
 # #+OPTIONS: html-style:nil
-#+OPTIONS: :exports results
+#+OPTIONS: :exports results :toc 1
+#+OPTIONS: toc:2
+
+After spending years focusing on my career in robotics and I have reached a point where I have some money sitting in the bank and don't know what to do with it. I am writing this blog-post to share my notes on investing to help people who are starting off their journey in investing.
 
 * Data Informed Approach
 ** Disclaimer
 Past data is not always an indicator of the future. In the words of Sean Ammirati, my professor at CMU, we need to be data informed and not data driven.
 
-** S&P 500 Data
+** Assumptions
+To keep the analysis simple and build intuition we will start with some assumptions which can relaxed later:
+*** The effects of inflation are canceled out by reinvesting the dividends
+*** We consider a fixed amount invested at a single start date rather than monthly investments
+
+* Does the stock market grow exponentially?
+
+** Stock Growth v.s. Compounding Interest
+When people talk about compounding interest, e.g. for the money you put in a bank, you get to re-invest your interest which generates more interest and the effects compound generating exponential returns just like the spread of corona-virus.
+Does this make sense for stocks? If you sell a $100 stock at $110 you cannot re-invest your $10 profit back into the stock since you cannot buy it at $100 anymore! Of-course, you can re-invest the dividends but that's only ~2% for S&P-500 which would require more that 35 years for your money to double.
+Stock values grow exponentially through the growth of their business. Imagine that you invested in a restaurant business which requires $1 million to start 1 restaurant. Once the business earns $1 million dollars from profits of the first restaurant it can start a 2nd one. This will allow them to make $2 million dollars in the same time using which they can start 2 more restaurant which would then scale to 4, 8, 16, 32 and keep growing exponentially!
 
 #+BEGIN_SRC ipython :session :exports both :results raw drawer :exports results
 %matplotlib inline
@@ -26,27 +39,7 @@ df = pd.read_excel('data.xls')
 data_orig = df.to_numpy()
 # Convert date to time (decimal)
 time_orig = [ np.floor(d)+ (d%1)/0.12 for d in data_orig[:,0]]
-plt.plot(time_orig, data_orig[:,1])
-plt.xlabel('Year')
-plt.ylabel('Value ($)')
-plt.show()
-#+end_src
 
-#+RESULTS:
-:results:
-# Out[7]:
-[[file:./obipy-resources/DxLNRo.png]]
-:end:
-
-
-** Assumptions
-To keep the analysis simple and build intuition we will start with some assumptions which can relaxed later:
-*** The effects of inflation are cancelled out reinvesting the dividends
-*** We consider a fixed amount invested at a single start date rather than monthly investments
-
-
-* Does the stock market grow exponentially?
-#+BEGIN_SRC ipython :session :exports both :results raw drawer :exports results
 @np.vectorize
 def get_rate(start_time, delta_time, show_plot=False):
     # Get data for desired period
@@ -79,10 +72,12 @@ print('Annual Rate: %.2f' % get_rate(1900, 120, True))
 #+end_src
 #+RESULTS:
 :results:
-# Out[94]:
-[[file:./obipy-resources/AkD4fW.png]]
+# Out[7]:
+[[file:./obipy-resources/9nilbq.png]]
 :end:
 
+** Take-away
+Market growth is exponential and it is very important to enter it early. The difference could cost you 8x as opposed to 16x returns.
 
 * How sensitive are the returns to investment timing?
 
@@ -102,11 +97,13 @@ def get_factor(start_time, delta_time, use_NaN=False):
     principal = data_orig[start_idx][1]
     value = data_orig[end_idx][1]
     return value/principal
+
 X,Y = np.meshgrid(start_times, delta_times)
 Z_factor = get_factor(X,Y)
 fig2 = plt.figure()
 ax2 = fig2.add_subplot('111',projection='3d')
 mycmap = plt.get_cmap('gist_earth')
+plt.figure(figsize=(18,12))
 surf2 = ax2.plot_surface(X, Y, Z_factor, cmap=mycmap)
 ax2.set_xlabel('Start Year')
 ax2.set_ylabel('Period')
@@ -116,11 +113,13 @@ plt.show()
 #+end_src
 #+RESULTS:
 :results:
-# Out[93]:
-[[file:./obipy-resources/RwmTRS.png]]
+# Out[101]:
+[[file:./obipy-resources/AbXLTW.png]]
 :end:
+
+Growth factor is the ratio of the return while exiting the market to the amount invested during entry.
 ** Market Entry
-*** Slices
+*** How does the growth factor change for different start dates and a fixed investment period?
 #+BEGIN_SRC ipython :session :exports both :results raw drawer :exports results
 fig, axs = plt.subplots(3,2, figsize=(18, 20), facecolor='w', edgecolor='k')
 fig.subplots_adjust(hspace = 0.22, wspace=0.1)
@@ -166,11 +165,12 @@ plt.show()
 # [[file:./obipy-resources/d5yjiC.png]]
 # :end:
 
-
+*** Take-aways
+ * Start times can effect the returns but as we'll see in the next section, in the long run this doesn't matter.
+ * Strategies like dollar-cost averaging (distributing investments into smaller chunks over a period of time instead of investing in one-shot) can be used to mitigate this effect.
 
 ** Investment Period
-
-*** Slices
+*** How does the growth factor change for different investment periods and a given start date?
 
 #+BEGIN_SRC ipython :session :exports both :results raw drawer :exports results
 fig, axs = plt.subplots(3,2, figsize=(18, 20), facecolor='w', edgecolor='k')
@@ -187,14 +187,14 @@ for i in range(len(start_times)-1):
     axs[i].set_ylabel('Growth Factor')
     factors[start_times[i]] = factor
     factor = factor[~np.isnan(factor)]
-    axs[i].set_title('Investment Year: ' + str(start_times[i]) + '\n' + 'Mean: ' + str("".format(np.mean(factor))) + ', Min: ' + str("{:.2f}".format(np.min(factor)))  + ', Max: ' + str("{:.2f}".format(np.max(factor))))
+    axs[i].set_title('Investment Year: ' + str(start_times[i]))
 plt.show()
 #+end_src
 
 #+RESULTS:
 :results:
-# Out[97]:
-[[file:./obipy-resources/BVxJws.png]]
+# Out[9]:
+[[file:./obipy-resources/d1hS2F.png]]
 :end:
 
 # *** Projected Slices
@@ -217,11 +217,35 @@ plt.show()
 # [[file:./obipy-resources/d5yjiC.png]]
 # :end:
 
+** Take-aways
+ * It doesn't make sense to expect returns in the short-term, growth is exponential over a long-term.
+ * In the long run, you should expect exponential returns but they can be sensitive to timing. Hence, it is a good strategy to invest a larger portion of your portfolio in bonds as you approach closer to retirement.
 
-* Can we exploit the cycles and time the market?
-** Diagonal Slices
+*"Time in the market is more important than timing the market"*
+* Other important take-aways
+** It's not possible to time the market consistently for a long period of time
+ [[[https://www.youtube.com/watch?v=w_aOERmUWdA&feature=youtu.be][Ben Flix's Video]]] talks about different studies that
+** It's not possible to beat the market consistently for a long period of time
+Don't take my word, Warren Buffet placed a $1 million bet to any hedge fund who can beat the market for 10 years. Not surprising, he won the bet. See [[[https://www.youtube.com/watch?v=ibCMPzt01MA][video from WSJ]]]
+** Knowledge is different than information
+Many of these take-aways are easy to neglect when large hard-earned money is at stake. It's very common for investors give into emotions and follow-the-herd. When you see some friend bragging about investing in Tesla and Amazon at the right time. What they don't talk about is the other losses that they had to incur and for how long have they been able to sustain such perfect timings.
 
-* What are other useful resources to learn more?
-** Investment Brokers
-** Books and more!
-** Useful Websites
+* Investing in your Career is better than time spent in active investing
+Passive investment sets a VERY strong baseline that is really hard to beat by most active investors. Large hedge funds are out there trying to beat the market with a lot more resources than an individual part-time investor. Unless you have some special information that's very hard to get, the prices of the stocks would have already corrected to account for the information.
+Time spent in active investing can be better used in learning new skills, taking courses, working on personal projects or startup/business.
+You can scale you salary much faster and consistently than trying to beat the market!
+
+* My Investment Strategy
+** Consistent Long-term Passive Investing
+Save a fixed amount of money every month and consistently invest money in a diverse portfolio using index funds with low expense ratios [[[https://youtu.be/8I7hEKKw7qM][Rose's Video]]]
+** Set aside a speculation funds for active investing
+If you have strong cravings about trying to beat the market set aside a different fund ~5-20% of your portfolio which you are prepared to loose completely. As you realize how hard active investing is, you can scale it down to zero.
+** Invest in yourself/career
+
+* Other useful resources
+** Which Investment Broker to use?
+Short answer: As of Aug 2020, Fidelity is the best option. See [[[https://youtu.be/gIVl79XAUXM][video]]]
+** ETFs vs Index Funds
+Explained [[[https://www.youtube.com/watch?v=vGcOGYkttI4][here]]]
+** Book/bible of Investment
+[[https://www.amazon.com/dp/B000FC12C8/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1][The Intelligent Investor, by Benjamin Graham  (Author), Jason Zweig  (Author), Warren E. Buffett (Collaborator)]]

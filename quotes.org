@@ -1,0 +1,14 @@
+#+title: Quotes
+#+author: Rohan Thakker
+#+SETUPFILE: ../org-template/style.org
+# #+OPTIONS: html-style:nil
+#+OPTIONS: toc:nil
+
+* Life
+** "An expert is a man who has made all the mistakes which can be made, in a narrow field."   - Neil Bohr
+
+** "Nothing in this world can take the place of persistence. Talent will not; nothing is more common than unsuccessful men with talent. Genius will not; unrewarded genius is almost a proverb. Education will not; the world is full of educated derelicts. Persistence and determination alone are omnipotent. The slogan Press On! has solved and always will solve the problems of the human race." ― Calvin Coolidge
+** "All models are wrong, but some are useful."
+* Finance
+** "Time in the market beats timing the market."
+** "Be greedy when others are fearful and fearful when other are greedy." -Warren Buffett

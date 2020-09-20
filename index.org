@@ -1,5 +1,6 @@
 #+TITLE: Inobotics
 
 - [[file:blogging_with_emacs.org][Blogging with Emacs Org Mode]]
+- [[file:quotes.org][Quotes]]
 - passive_investing
   - [[file:passive_investing/passive_investing.org][The Passive Investor]]

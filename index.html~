@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-20 Sun 15:28 -->
+<!-- 2020-09-20 Sun 16:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Blogging with Emacs Org Mode</title>
+<title>Inobotics</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Rohan Thakker" />
 <style type="text/css">
@@ -180,7 +180,6 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="../css/orgcss/docs/org.css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -230,89 +229,19 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Blogging with Emacs Org Mode</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#orgb405198">1. Why emacs org mode?</a>
-<ul>
-<li><a href="#org49dc9d6">1.1. Consistent markup language with export support to multiple file types:</a></li>
-<li><a href="#org20e2c16">1.2. Time efficiency</a></li>
-</ul>
-</li>
-<li><a href="#orgc7689b0">2. How do I blog with emacs?</a>
-<ul>
-<li><a href="#org2020877">2.1. Basic setup</a></li>
-<li><a href="#org6e1be7b">2.2. Templates</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-
-
-<div id="outline-container-orgb405198" class="outline-2">
-<h2 id="orgb405198"><span class="section-number-2">1</span> Why emacs org mode?</h2>
-<div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-org49dc9d6" class="outline-3">
-<h3 id="org49dc9d6"><span class="section-number-3">1.1</span> Consistent markup language with export support to multiple file types:</h3>
-<div class="outline-text-3" id="text-1-1">
+<h1 class="title">Inobotics</h1>
 <ul class="org-ul">
-<li>Latex</li>
-<li>Beamer</li>
-<li>HTML</li>
-<li>Word</li>
-<li>PDF</li>
-<li>and many more</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org20e2c16" class="outline-3">
-<h3 id="org20e2c16"><span class="section-number-3">1.2</span> Time efficiency</h3>
-<div class="outline-text-3" id="text-1-2">
+<li><a href="blogging_with_emacs.html">Blogging with Emacs Org Mode</a></li>
+<li><a href="quotes.html">Quotes</a></li>
+<li>passive<sub>investing</sub>
 <ul class="org-ul">
-<li>Mouse-free workflow</li>
-<li>Highly customizable through e-lisp</li>
+<li><a href="passive_investing/passive_investing.html">The Passive Investor</a></li>
+</ul></li>
 </ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orgc7689b0" class="outline-2">
-<h2 id="orgc7689b0"><span class="section-number-2">2</span> How do I blog with emacs?</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org2020877" class="outline-3">
-<h3 id="org2020877"><span class="section-number-3">2.1</span> Basic setup</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-Refer to the following to get started:
-<a href="https://opensource.com/article/20/3/blog-emacs">https://opensource.com/article/20/3/blog-emacs</a>
-</p>
-</div>
-</div>
-<div id="outline-container-org6e1be7b" class="outline-3">
-<h3 id="org6e1be7b"><span class="section-number-3">2.2</span> Templates</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-Adapt the website using templates such as:
-</p>
-<ul class="org-ul">
-<li>[<a href="https://gongzhitaao.org/orgcss/">orgcss</a>] [<a href="https://gongzhitaao.org/orgcss/org.css">source code</a>]</li>
-</ul>
-
-<div class="figure">
-<p><img src="./orgcss.PNG" alt="orgcss.PNG" width="75%" />
-</p>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Rohan Thakker</p>
-<p class="date">Created: 2020-09-20 Sun 15:28</p>
+<p class="date">Created: 2020-09-20 Sun 16:21</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
