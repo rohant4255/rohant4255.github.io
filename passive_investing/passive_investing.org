@@ -5,7 +5,7 @@
 #+OPTIONS: :exports results :toc 1
 #+OPTIONS: toc:2
 
-After spending years focusing on my career in robotics and I have reached a point where I have some money sitting in the bank and don't know what to do with it. I am writing this blog-post to share my notes on investing to help people who are starting off their journey in investing.
+After spending years focusing on my career in robotics and I found myself very lost when it came to making financial decisions. I am writing this blog-post to share my notes on investing in hopes of helping people who are starting off their journey in investing.
 
 * Data Informed Approach
 ** Disclaimer
