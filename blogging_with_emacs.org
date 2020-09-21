@@ -19,7 +19,7 @@
 ** Basic setup
 Refer to the following to get started:
 https://opensource.com/article/20/3/blog-emacs
-** Templates
+** [#C] Templates
 Adapt the website using templates such as:
 - [[[https://gongzhitaao.org/orgcss/][orgcss]]] [[[https://gongzhitaao.org/orgcss/org.css][source code]]]
 #+attr_html: :width 75%

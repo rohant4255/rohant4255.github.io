@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-20 Sun 16:22 -->
+<!-- 2020-09-20 Sun 17:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Inobotics</title>
+<title>Rohan Thakker's Blog</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Rohan Thakker" />
 <style type="text/css">
@@ -180,6 +180,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="../css/orgcss/docs/org.css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -229,19 +230,36 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Inobotics</h1>
-<ul class="org-ul">
-<li><a href="blogging_with_emacs.html">Blogging with Emacs Org Mode</a></li>
-<li><a href="quotes.html">Quotes</a></li>
-<li>passive<sub>investing</sub>
-<ul class="org-ul">
-<li><a href="passive_investing/passive_investing.html">The Passive Investor</a></li>
-</ul></li>
-</ul>
+<h1 class="title">Rohan Thakker's Blog</h1>
+<table border="0" cellspacing="0" cellpadding="6" rules="none" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><img src="./rohan_thakker.jpg" alt="rohan_thakker.jpg" /></td>
+<td class="org-left"><b>Nothing in this world can take the place of persistence. Talent will not; nothing is more common than unsuccessful men with talent. Genius will not; unrewarded genius is almost a proverb. Education will not; the world is full of educated derelicts. Persistence and determination alone are omnipotent.</b> ― Calvin Coolidge</td>
+</tr>
+</tbody>
+</table>
+
+<div id="outline-container-org16afd99" class="outline-2">
+<h2 id="org16afd99"><span class="section-number-2">1</span> <a href="blogging_with_emacs.html">Blogging with Emacs Org Mode</a></h2>
+</div>
+<div id="outline-container-org599cdd4" class="outline-2">
+<h2 id="org599cdd4"><span class="section-number-2">2</span> <a href="quotes.html">Quotes</a></h2>
+</div>
+<div id="outline-container-org8fd4761" class="outline-2">
+<h2 id="org8fd4761"><span class="section-number-2">3</span> <a href="passive_investing/passive_investing.html">The Passive Investor</a></h2>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Rohan Thakker</p>
-<p class="date">Created: 2020-09-20 Sun 16:22</p>
+<p class="date">Created: 2020-09-20 Sun 17:48</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
