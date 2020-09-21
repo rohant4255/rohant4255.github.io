@@ -3,8 +3,7 @@
 #+SETUPFILE: ../org-template/style.org
 # #+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
 
-
-* Why emacs org mode?
+* Why emacs org-mode?
 ** Consistent markup language with export support to multiple file types:
   * Latex
   * Beamer
@@ -15,11 +14,14 @@
 ** Time efficiency
   * Mouse-free workflow
   * Highly customizable through e-lisp
-* How do I blog with emacs?
-** Basic setup
+* How do I blog with emacs and org-mode?
+** Getting Started
+ * If you are new to emacs, I would recommend getting started with [[https://www.spacemacs.org/][spacemacs]] or [[https://github.com/hlissner/doom-emacs][doom]]. For visual learners [[https://www.youtube.com/watch?v=fdLCuJcS2Aw&list=PLd_Oyt6lAQ8Rxb0HUnGbRrn6R4Cdt2yoI&index=12][here is a good video]].
+ * Next, checkout [[https://youtu.be/S4f-GUxu3CY][Jack of Some's video]] on org-mode.
+** Basic Setup
 Refer to the following to get started:
 https://opensource.com/article/20/3/blog-emacs
-** [#C] Templates
+** Templates
 Adapt the website using templates such as:
 - [[[https://gongzhitaao.org/orgcss/][orgcss]]] [[[https://gongzhitaao.org/orgcss/org.css][source code]]]
 #+attr_html: :width 75%
